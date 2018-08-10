@@ -52,25 +52,25 @@ void Duongdingannhat(int u,int v,int n,vector < vector <int> > danhsachke,vector
     khoa[u]=1;
 
     int dem=0; //Luu so phan tu da cho vao vector Dulieu
-    queue <int> Myqueue;
-    queue <int> Fatherqueue;
-    Myqueue.push(u);
-    Fatherqueue.push(0);
+    queue <int> Myqueue;// hang doi 
+    queue <int> Fatherqueue// ung voi moi dinh dua vao hang doi ta se luu lai cha cua dinh do
+    Myqueue.push(u);// them dinh u vao hang doi
+    Fatherqueue.push(0);// 0 la cha cua dinh u
     int dinh;
     int cha=0;
-
+    //duyet do thi do thi. dieu kien dung khi duyet het thanh phan lien thong cua U
     while(!Myqueue.empty()){
 
-        dinh=Myqueue.front();
+        dinh=Myqueue.front();//
         Myqueue.pop();
         cha=Fatherqueue.front();
         Fatherqueue.pop();
-
+        // dung mang luu lai dinh va cha cua no khi duyet do thi tu dinh u
         Dulieu[dem].push_back(dinh);//dinh
         Dulieu[dem].push_back(cha);//cha
         dem++;
 
-
+        // cho cac dinh ke chua duoc xet voi dinh vua lay ra vao hang doi
         for(int i=0;i<danhsachke[dinh].size();i++){
             if(khoa[danhsachke[dinh][i]]==0){
                 Myqueue.push(danhsachke[dinh][i]);
@@ -81,14 +81,14 @@ void Duongdingannhat(int u,int v,int n,vector < vector <int> > danhsachke,vector
 
     }
 
-
+    //tim vi tri cua dinh v
     int vitri=1;
     for(int i=0;i<dem;i++){
         if(Dulieu[i][0]==v){
             vitri=i;
         }
     }
-
+    // tim duong di tu dinh v den dinh u
     int Duongdi[100];
     Duongdi[0]=v;
     int bo=Dulieu[vitri][1];
@@ -98,6 +98,7 @@ void Duongdingannhat(int u,int v,int n,vector < vector <int> > danhsachke,vector
         Duongdi[i]=Dulieu[bo][0];
         bo=Dulieu[bo][1];
     }
+    // in ra duong di tu dinh u den dinh v
     if(i==1) cout<<"Khong co duong di tu "<<Works[u]<<" den "<<Works[v];
     else{
         for(;i>=0;i--){

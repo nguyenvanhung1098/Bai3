@@ -26,7 +26,6 @@ void DemLienthong(int n,vector < vector <int> > danhsachke){
     while(soptu<n){
         int dinh;
         dinh=Kiemtra(n,khoa);
-        //cout<<endl<<dinh+1<<"   ";
         Myqueue.push(dinh);
         khoa[dinh]=1;
         soptu++;

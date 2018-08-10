@@ -53,7 +53,7 @@ void Duongdingannhat(int u,int v,int n,vector < vector <int> > danhsachke,vector
 
     int dem=0; //Luu so phan tu da cho vao vector Dulieu
     queue <int> Myqueue;// hang doi 
-    queue <int> Fatherqueue// ung voi moi dinh dua vao hang doi ta se luu lai cha cua dinh do
+    queue <int> Fatherqueue;// ung voi moi dinh dua vao hang doi ta se luu lai cha cua dinh do
     Myqueue.push(u);// them dinh u vao hang doi
     Fatherqueue.push(0);// 0 la cha cua dinh u
     int dinh;
